@@ -14,15 +14,7 @@ import {
 import { motion } from "framer-motion";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import {
-  Home,
-  PieChart as PieChartIcon,
-  Bell,
-  Settings,
-  TrendingUp,
-  Briefcase,
-  Newspaper,
-} from "lucide-react";
+import Layout from "../components/layout/Layout";
 
 // Mock data
 const kpiCards = [
@@ -153,14 +145,7 @@ export default function FinancialDashboard() {
   const [timeRange, setTimeRange] = useState("1D");
 
   return (
-    <div className="min-h-screen bg-gray-900 text-white flex flex-col">
-      {/* Header Navigation */}
-      <header className="flex items-center justify-between px-6 py-4 border-b border-gray-800 bg-gray-950">
-        <div className="flex items-center space-x-3">
-          <h1 className="text-2xl font-bold">My Portfolio</h1>
-        </div>
-      </header>
-
+    <Layout>
       <div className="p-6 flex-1">
         {/* KPI Cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4 mb-6">
@@ -342,6 +327,6 @@ export default function FinancialDashboard() {
           </Card>
         </div>
       </div>
-    </div>
+    </Layout>
   );
 }

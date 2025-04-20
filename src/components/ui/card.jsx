@@ -1,23 +1,41 @@
-// src/components/ui/card.jsx
 import React from "react";
-import { cn } from "@/lib/utils"; // or where you keep utility functions
+import clsx from "clsx";
 
-export function Card({ className, children, ...props }) {
+export const Card = ({ className, children, ...props }) => {
   return (
-    <div className={cn("rounded-2xl shadow p-4", className)} {...props}>
+    <div
+      className={clsx(
+        "rounded-lg border border-gray-700 bg-gray-800 shadow",
+        className
+      )}
+      {...props}
+    >
       {children}
     </div>
   );
-}
+};
 
-export function CardHeader({ children, className }) {
-  return <div className={cn("mb-2", className)}>{children}</div>;
-}
+export const CardHeader = ({ className, ...props }) => {
+  return (
+    <div
+      className={clsx("flex flex-col space-y-1.5 p-6", className)}
+      {...props}
+    />
+  );
+};
 
-export function CardTitle({ children, className }) {
-  return <h2 className={cn("text-xl font-bold", className)}>{children}</h2>;
-}
+export const CardTitle = ({ className, ...props }) => {
+  return (
+    <h3
+      className={clsx(
+        "text-lg font-semibold leading-none tracking-tight text-white",
+        className
+      )}
+      {...props}
+    />
+  );
+};
 
-export function CardContent({ children, className }) {
-  return <div className={cn("", className)}>{children}</div>;
-}
+export const CardContent = ({ className, ...props }) => {
+  return <div className={clsx("p-6 pt-0", className)} {...props} />;
+};

@@ -1,10 +1,10 @@
 import React from 'react'
+import { RouterProvider } from 'react-router-dom'
 import './App.css'
-import FinancialDashboard from './pages/FinancialDashboard'
+import routes from './routes/routes'
 
 function App() {
-  return <FinancialDashboard />;
+  return <RouterProvider router={routes} />;
 }
 
 export default App
-
